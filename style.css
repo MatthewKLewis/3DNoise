@@ -1,0 +1,35 @@
+#canvas0 {
+    border: 1px solid red;
+    position: fixed;
+    left: 100px;
+    top: 160px;
+    z-index: 10;
+    height: 200px;
+    width: 200px;
+    transform: skew(10deg, 30deg);
+    opacity: 70%;
+}
+
+#canvas1 {
+    border: 1px solid red;
+    position: fixed;
+    left: 200px;
+    top: 160px;
+    z-index: 0;
+    height: 200px;
+    width: 200px;
+    transform: skew(10deg, 30deg);
+    opacity: 70%;
+}
+
+#canvas2 {
+    border: 1px solid red;
+    position: fixed;
+    left: 300px;
+    top: 160px;
+    z-index: 0;
+    height: 200px;
+    width: 200px;
+    transform: skew(10deg, 30deg);
+    opacity: 70%;
+}
