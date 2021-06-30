@@ -103,7 +103,12 @@ grid.forEach((square) => {
 })
 
 //////// SMOOTHING ////////
-//
+for (let i = 4210; i < 4220; i++) {
+    console.log(grid[i].bordering)
+
+    //tabulate the total, from 0-6 of ON border nodes.
+    
+}
 
 ///////// COLOR /////////
 for (let i = 0; i < grid.length; i++) {
