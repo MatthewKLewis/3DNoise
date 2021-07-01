@@ -72,6 +72,33 @@ function scrollThroughZ(evt) {
     }
 }
 
+function smoothNoise(passes) {
+    for (let index = 0; index < passes; index++) {
+        for (let i = 0; i < grid.length; i++) {
+            //determine how many squares surround the origin square
+            var definedBorders = []
+            for (let j = 0; j < grid[i].bordering.length; j++) {
+                if (grid[i].bordering[j] != undefined) {
+                    definedBorders.push(j)
+                }
+            }
+            var total = 0
+            for (let k = 0; k < definedBorders.length; k++) {
+                if (grid[i].bordering[definedBorders[k]].r == 1) {
+                    total++;
+                }        
+            }
+            //tabulate the total, from 0-6 those bordering squares
+            if (total > 4) {
+                grid[i].r = 1
+            } else if (total < 2) {
+                grid[i].r = 0
+            }
+            
+        }   
+    }
+}
+
 ///////// GRID /////////
 var grid = []
 for (let y = 0; y < SIDE_LENGTH; y++) {
@@ -103,12 +130,7 @@ grid.forEach((square) => {
 })
 
 //////// SMOOTHING ////////
-for (let i = 4210; i < 4220; i++) {
-    console.log(grid[i].bordering)
-
-    //tabulate the total, from 0-6 of ON border nodes.
-    
-}
+smoothNoise(6);
 
 ///////// COLOR /////////
 for (let i = 0; i < grid.length; i++) {
@@ -139,7 +161,7 @@ for (let i = 0; i < grid.length; i++) {
     if (grid[i].r == 0) {
         grid[i].color = 'white'
     } else {
-        grid[i].color = 'lightgrey'
+        grid[i].color = 'grey'
     }
 }
 
